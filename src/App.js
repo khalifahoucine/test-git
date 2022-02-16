@@ -1,25 +1,20 @@
 import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  state = {name:"houcine",changButton:false}
+  hendClick=()=>{
+this.state.name=="houcine"?this.setState({name:"amin"}):this.setState({name:"houcine"})
+  this.setState({changButton:!this.state.changButton})
 }
+  render() {  
+  return (
+    <div className="App"><h1 className={this.state.name}>{this.state.name}</h1>
+      <button onClick={this.hendClick}>change name</button>
+      </div>
+  );
+   }
+  }
+  
 
 export default App;
